@@ -1,0 +1,53 @@
+
+<ion-content [fullscreen]="true">
+  <ion-header slot="fixed" class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons slot="start" mode="md">
+        <ion-back-button defaultHref="/home" color="light"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <div [style.background-image]="'url(' + (item?.cover || '') + ')'" class="bg">
+    <div class="rating" align="center">
+      <ion-icon name="star" color="warning"></ion-icon>
+      {{ item?.rating }}
+    </div>
+  </div>
+
+  <ion-item lines="none" class="bg-description">
+
+    <ion-label>
+      {{ item?.name | uppercase }}
+      <p class="desc">{{ item?.description }}</p>
+      <p>
+        <ion-text color="medium">MRP</ion-text>
+        <ion-text color="dark" class="price">
+          $<span>{{ item?.price }}</span>
+        </ion-text>
+      </p>
+    </ion-label>
+  </ion-item>
+    <p [routerLink]="['/map-leaflet',item.id]">View map</p>
+  <ion-list lines="none" class="billing">
+    <ion-list-header>
+      <ion-label style="color: #626ABB">Bill Details</ion-label>
+    </ion-list-header>
+    <ion-item-group>
+      <ion-item>
+        <ion-icon slot="start" name="location-outline"></ion-icon>
+        <ion-label color="dark">
+         Duckla
+          <p>
+            <span style="color: #626ABB">Geffrard</span>
+          </p>
+          <ng-container >
+            <span>Ennery</span>
+          </ng-container>
+          Gonaives, Haiti - P.au.P,
+          Guerline, Thermidor
+        </ion-label>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+</ion-content>
+

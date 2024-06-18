@@ -1,0 +1,85 @@
+
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>
+      FLAP
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-thumbnail>
+        <img src="../../../assets/avatar.jpg" alt="">
+      </ion-thumbnail>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-row class="srch">
+      <ion-col size="10">
+        <ion-searchbar
+          debounce="800"
+          #searchInput
+          mode="ios"
+          class="srchBar"
+          placeholder="Search for gifts..."
+          (ionInput)="onSearchChange($event)"
+        ></ion-searchbar>
+      </ion-col>
+      <ion-col size="2" >
+        <ion-button mode="ios" >
+          <ion-icon name="options"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <!--Categories -->
+  <app-home-slide-header name="Categories"></app-home-slide-header>
+
+  <div class="categories-list">
+    <ion-chip *ngFor="let categories of categories">
+      <ion-label>{{categories.name}}</ion-label>
+    </ion-chip>
+  </div>
+
+
+  <!--Pharmacie -->
+  <app-home-slide-header name="Pharmacie"></app-home-slide-header>
+   <app-slider-component [pharmacie]="pharmacies"></app-slider-component>
+
+  <!--Pharmacie -->
+  <app-home-slide-header name="Hopital"></app-home-slide-header>
+
+  <ion-row>
+    <ion-col *ngFor="let item of items; let i = index"
+    size="3" size-md="4" size-sm="6" size-xs="6">
+      <ion-card [routerLink]="['/', 'home', 'gifts', item?.id]">
+      <ion-thumbnail>
+        <ion-img [src]="item?.cover"></ion-img>
+      </ion-thumbnail>
+        <ion-label>
+          <ion-text color="dark">
+            <strong>{{item?.name}}</strong>
+          </ion-text>
+          <p>
+            <ion-text color="dark">
+              $<strong>{{item?.price}}</strong>
+            </ion-text>
+            <ion-text class="rating" color="dark">
+              {{item?.rating}}
+              <ion-icon name="star" color="warning"></ion-icon>
+            </ion-text>
+          </p>
+        </ion-label>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+
+
+</ion-content>

@@ -1,0 +1,11 @@
+<swiper-container
+  slides-per-view="2"
+  initialSlide="0"
+  spaceBetween="0"
+  slidesOffsetBefore="6">
+  <ng-container>
+    <swiper-slide *ngFor="let pharmacie of pharmacie">
+      <app-card-component [pharmacie]="pharmacie"></app-card-component>
+    </swiper-slide>
+  </ng-container>
+</swiper-container>

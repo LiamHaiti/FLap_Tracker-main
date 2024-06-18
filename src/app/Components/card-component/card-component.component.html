@@ -1,0 +1,14 @@
+
+<ion-card class="location-card">
+  <img [src]="pharmacie.cover" alt="">
+  <ion-card-content>
+    <ion-label class="ion-text-wrap">
+      <p>{{pharmacie.price | currency}}</p>
+</ion-label>
+    <h2>{{pharmacie.name | titlecase}}</h2>
+    <div class="button">
+      <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+    </div>
+  </ion-card-content>
+
+</ion-card>
